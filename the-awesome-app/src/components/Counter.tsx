@@ -1,7 +1,7 @@
 // <Counter initCount={5} />
 
 import type React from "react"
-import { useState, type ChangeEvent, type MouseEvent } from "react"
+import { useState, type ChangeEvent } from "react"
 
 type CounterProps = {
     initCount: number
@@ -12,7 +12,7 @@ const Counter: React.FC<CounterProps> = ({initCount}) => {
 
     const [count, setCount] = useState(initCount);
 
-    function inc(evt:MouseEvent ){
+    function inc( ){
         //console.log("inc invoked...",evt);
         //setCount(count + 1);
         //setCount(count + 1);
