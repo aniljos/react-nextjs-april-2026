@@ -1,4 +1,4 @@
-**React-Next.js Session 13-April-2026**
+**React-Next.js Session:  13th April 2026**
 
 ***Google Forms***
 * Introduction: https://forms.gle/bbi2mU4bvM8XsDJdA
