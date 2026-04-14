@@ -74,3 +74,16 @@
     * Clear the timers
     * Unregister events
 
+***Share state***
+
+  * Local Storage & Session storage
+  * Cookies
+  * Memory of the application: State management libraies/apis
+
+***Redux***
+  * store: central store for data in memory
+  * action:
+    * an object : 
+      * {type: "save_token", data: "token"}, 
+      * {type: "update_token", data: "new_token"}
+
