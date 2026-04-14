@@ -2,6 +2,7 @@
 
 ***Google Forms***
 * Introduction: https://forms.gle/bbi2mU4bvM8XsDJdA
+* Quiz Day 1: https://forms.gle/Rx1Nthxv26aTFndm8
 
 ***Documentation***
 * React: https://react.dev/
