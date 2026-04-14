@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-function AppBar() {
+function appBar() {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <div className="container-fluid">
@@ -23,4 +23,4 @@ function AppBar() {
   );
 }
 
-export default AppBar;
+export default appBar;

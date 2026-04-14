@@ -43,6 +43,34 @@
   * state changes are asynchronous
   * state changes are batched
   * signature: 1. setState(updatedState) 2. setState(callback), callback(currentValue): updatedValue
+  * state must be treated as immutable
 
 
+***Forms***
+  * Controlled input: 2-way binding(value & onChange)
+    * Reactive
+    * useState hook
+  * Uncontrolled input: 
+    * Non-reactive
+    * useRef hook
+  
+***Conditional Rendering***
+  * ternary operator in the JSX
+
+***useEffect Hook***
+  * mount
+    * When the depenedency array is empty(no dependencies), the hook in invoked on mount(only once in the lifecycle)
+    * API calls on page mount/load
+    * DOM initializations
+    * Register Events on the window or document object 
+    * Starting a poll(setTimout, setInterval)
+  * update
+    * When there is a dependency
+    * Invoked whenever the dependency changes
+  * unmount
+    * Implemented by retuning a callback from the useEffect of mount
+    * Cancelling an API calls
+    * Closing a connection
+    * Clear the timers
+    * Unregister events
 
