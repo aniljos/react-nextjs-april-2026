@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const usernameInputRef = useRef<HTMLInputElement>(null)
+  const navigate  = useNavigate();
 
     //invoked on mount
     useEffect(() => {
@@ -30,13 +32,13 @@ function LoginPage() {
             const url = "http://localhost:9000/login";
             const response  = await axios.post(url, {name: username, password});
             console.log("success", response);
-            
-        } catch (error) {
-            console.log("failed", error);
+            setMessage("");
+            navigate("/");
+
+        } catch {
+            //console.log("failed", error);
+            setMessage("Invalid credentials");
         }
-        
-        
-        setMessage("")
     }
     else{
         setMessage("Enter the credentials");
