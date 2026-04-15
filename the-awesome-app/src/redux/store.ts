@@ -1,8 +1,10 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import { authReducer } from './authReducer';
+import { gadgetsReducer } from './gadgetsReducer';
 
 const reducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    gadgets: gadgetsReducer
 })
 
 
