@@ -91,4 +91,11 @@
     * function
     * one per store
     * receives the action and updates the store
+  
 
+***React Redux***
+  * Provider component: integrate the store with the components tree.
+  * useDispatch: returns a dispatch function.
+  * useSelector: select(return) the state or a slice of the state
+    * internally subscribes to the store
+  * useStore: returns a handle to the store

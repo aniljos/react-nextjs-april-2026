@@ -1,54 +1,62 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const usernameInputRef = useRef<HTMLInputElement>(null)
-  const navigate  = useNavigate();
+  const usernameInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    //invoked on mount
-    useEffect(() => {
+  //invoked on mount
+  useEffect(() => {
+    console.log("loginpage mounted");
+    usernameInputRef.current?.focus();
 
-        console.log("loginpage mounted");
-        usernameInputRef.current?.focus();
+    //invoked on unmount
+    return () => {
+      console.log("loginpage unmounted");
+    };
+  }, []);
 
-        //invoked on unmount
-        return () => {
-            console.log("loginpage unmounted");
-        }
-    }, [])
-
-  async function login(e: MouseEvent<HTMLButtonElement>){
-
+  async function login(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    
-    if(username && password){
 
-        //validate 
-        try {
-            const url = "http://localhost:9000/login";
-            const response  = await axios.post(url, {name: username, password});
-            console.log("success", response);
-            setMessage("");
-            navigate("/");
+    if (username && password) {
+      //validate
+      try {
+        const url = "http://localhost:9000/login";
+        const response = await axios.post(url, { name: username, password });
+        console.log("success", response);
+        setMessage("");
+        dispatch({
+          type: "login",
+          payload: {
+            isAuthenticated: true,
+            username,
+            accessToken: response.data.accessToken,
+            refreshToken: response.data.refershToken,
+          },
+        });
 
-        } catch {
-            //console.log("failed", error);
-            setMessage("Invalid credentials");
-        }
-    }
-    else{
-        setMessage("Enter the credentials");
+        navigate("/");
+      } catch {
+        //console.log("failed", error);
+        setMessage("Invalid credentials");
+        dispatch({type: "logout"});
+      }
+    } else {
+      setMessage("Enter the credentials");
     }
   }
 
   return (
     <div>
       <h3>Login</h3>
-      {message ? <div className="alert alert-warning">{message}</div>: null}
+      {message ? <div className="alert alert-warning">{message}</div> : null}
 
       <form>
         <div className="form-group">
@@ -59,7 +67,7 @@ function LoginPage() {
             className="form-control"
             placeholder="UserName"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             ref={usernameInputRef}
             //autoFocus
           />
@@ -72,12 +80,13 @@ function LoginPage() {
             className="form-control"
             placeholder="Password"
             value={password}
-             
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <br />
-        <button className="btn btn-success" onClick={login}>Login</button>
+        <button className="btn btn-success" onClick={login}>
+          Login
+        </button>
       </form>
     </div>
   );

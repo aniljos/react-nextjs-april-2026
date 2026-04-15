@@ -3,15 +3,26 @@ import { useEffect, useState } from "react";
 import { Product } from "../model/Product";
 import "./ListProducts.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { AppState } from "../redux/store";
 
-const url = "http://localhost:9000/products";
+//const url = "http://localhost:9000/products";
+const url = "http://localhost:9000/secure_products";
+
 function ListProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
+  const auth = useSelector((state: AppState) => state.auth);
 
   async function fetchProducts() {
     try {
-      const response = await axios.get<Product[]>(url);
+      
+      if(!auth.isAuthenticated){
+        navigate("/login");
+        return;
+      }
+      const headers = {"Authorization": `Bearer ${auth.accessToken}`}
+      const response = await axios.get<Product[]>(url, {headers});
       setProducts(response.data);
       //console.log("products", products);
     } catch (error) {
