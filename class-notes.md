@@ -3,7 +3,8 @@
 ***Google Forms***
 * Introduction: https://forms.gle/bbi2mU4bvM8XsDJdA
 * Quiz Day 1: https://forms.gle/Rx1Nthxv26aTFndm8
-
+* Quiz Day 2: https://forms.gle/XEhyS27d6i5xAERs9
+  
 ***Documentation***
 * React: https://react.dev/
 * Nextjs: https://nextjs.org/
@@ -86,4 +87,8 @@
     * an object : 
       * {type: "save_token", data: "token"}, 
       * {type: "update_token", data: "new_token"}
+  * reducer:
+    * function
+    * one per store
+    * receives the action and updates the store
 
