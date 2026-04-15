@@ -1,12 +1,19 @@
+import { useDispatch } from "react-redux";
 import { useProducts } from "../hooks/useProducts";
+import {addToCart as addToReduxCart} from '../redux/gadgetsReducer';
+import { CartItem } from "../model/CartItem";
+import type { Product } from "../model/Product";
 
 const url = "http://localhost:9000/products";
 function GadgetStorePage(){
 
     const {products} = useProducts(url);
+    const dispatch = useDispatch();
 
     function addToCart(product: Product): void {
-        
+
+        const action = addToReduxCart(new CartItem(product, 1));
+        dispatch(action);
     }
 
     function renderProducts() {

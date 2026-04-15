@@ -1,8 +1,18 @@
+import { useContext } from 'react';
 import {Link} from 'react-router-dom';
+import { AppThemeContext } from '../context/AppThemeContext';
 
-function appBar() {
+function AppBar() {
+
+  const themeContext = useContext(AppThemeContext);
+
+  function switchTheme(){
+    themeContext.changeMode(themeContext.mode === "dark" ? "light" : "dark");
+    console.log("mode", themeContext.mode);
+  }
+
   return (
-    <nav className="navbar navbar-dark bg-dark">
+    <nav className={`navbar navbar-${themeContext.mode} bg-${themeContext.mode}`}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           React
@@ -23,10 +33,13 @@ function appBar() {
           <li className="nav-item">
             <Link className="nav-link" to="/viewcart">View Cart</Link>
           </li>
+           <li className="nav-item">
+            <button className='btn btn-warning' onClick={switchTheme}>Switch Theme</button>
+          </li>
         </ul>
       </div>
     </nav>
   );
 }
 
-export default appBar;
+export default AppBar;

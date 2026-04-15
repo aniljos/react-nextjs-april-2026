@@ -8,7 +8,8 @@ const reducer = combineReducers({
 })
 
 
-export const store = configureStore({reducer: reducer});
+export const store = configureStore(
+    {reducer: reducer, devTools: false});
 
 export type AppState = ReturnType<typeof store.getState>; // read from the store
 export type AppDispatch = typeof store.dispatch; // dispatch an action to the store

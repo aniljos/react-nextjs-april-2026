@@ -91,6 +91,12 @@
     * function
     * one per store
     * receives the action and updates the store
+    * Must be synchronous
+  * middleware
+    * intercepts the actions
+    * logging the actions/state
+    * Async operations
+      * Libraries : Redux thunk, Redux Saga
   
 
 ***React Redux***
@@ -101,3 +107,18 @@
   * useStore: returns a handle to the store
 
 ***Redux toolkit***
+  * opinionated, batteries-included library
+  * slices: alternative to reducers
+    * treat state as mutable
+  * action creators:
+    * helper function to create actions
+
+***React Context***
+ * low level, lightweight library
+ * createContext"create the context
+ * useContext: access the context
+ * Multiple contexts
+ * Create a library around context for re-rendering 
+
+***Optimization***
+  * create smaller or granular components
