@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
 import type { Product } from "../model/Product";
-//import { useSelector } from "react-redux";
-//import type { AppState } from "../redux/store";
+import { useSelector } from "react-redux";
+import type { AppState } from "../redux/store";
 import axios from "axios";
 //import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export function useProducts(url: string) {
     
   const [products, setProducts] = useState<Product[]>([]);
-  // const auth = useSelector((state: AppState) => state.auth);
+   const auth = useSelector((state: AppState) => state.auth);
   // const navigate = useNavigate();
+  const router = useRouter();
 
   async function fetchProducts(signal: AbortSignal) {
     try {
-      // if (!auth.isAuthenticated) {
-      //   navigate("/login");
-      //   return;
-      // }
-      ///const headers = { Authorization: `Bearer ${auth.accessToken}` };
-      //const response = await axios.get<Product[]>(url, { headers, signal });
-      const response = await axios.get<Product[]>(url, { signal });
+      if (!auth.isAuthenticated) {
+        //navigate("/login");
+        router.push("/login");
+        return;
+      }
+      const headers = { Authorization: `Bearer ${auth.accessToken}` };
+      const response = await axios.get<Product[]>(url, { headers, signal });
+      //const response = await axios.get<Product[]>(url, { signal });
       setProducts(response.data);
       //console.log("products", products);
     } catch (error) {

@@ -9,6 +9,7 @@ import {
   AppThemeProvider,
 
 } from "./context/AppThemeContext.tsx";
+import './axios/interceptors.ts';
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
