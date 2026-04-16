@@ -11,14 +11,14 @@ export function useProducts(url: string) {
   const auth = useSelector((state: AppState) => state.auth);
   const navigate = useNavigate();
 
-  async function fetchProducts() {
+  async function fetchProducts(signal: AbortSignal) {
     try {
       if (!auth.isAuthenticated) {
         navigate("/login");
         return;
       }
       const headers = { Authorization: `Bearer ${auth.accessToken}` };
-      const response = await axios.get<Product[]>(url, { headers });
+      const response = await axios.get<Product[]>(url, { headers, signal });
       setProducts(response.data);
       //console.log("products", products);
     } catch (error) {
@@ -27,7 +27,14 @@ export function useProducts(url: string) {
   }
 
   useEffect(() => {
-      fetchProducts();
+
+      const controller = new AbortController();
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      fetchProducts(controller.signal);
+
+      return () => {
+        controller.abort();
+      }
     }, []);
 
  return {products, setProducts, fetchProducts};

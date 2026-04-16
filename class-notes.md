@@ -128,3 +128,8 @@
   * React.memo:
     * create a cache(momoized) copy of the component
     * memo is regenerated if the props or state changes
+  * Hooks
+    * useCallback: create a momoized copy of the callback(passed as prop to a component)
+    * useMemo: create a memo of a value
+  * Virtual DOM
+  

@@ -1,3 +1,5 @@
+
+
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -5,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { useTitle } from "../hooks/useTitle";
 
 function LoginPage() {
+  
+  "use no memo"
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");

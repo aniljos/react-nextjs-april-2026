@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useTitle } from "../hooks/useTitle";
 import { useProducts } from "../hooks/useProducts";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import ProductView from "../components/ProductView";
 
 //const url = "http://localhost:9000/products";
@@ -19,11 +19,10 @@ function ListProductsPage() {
   useTitle("List-Products")
 
 
-  async function handleDelete(product: Product) {
-    try {
-      const deleteUrl = url + "/" + product.id;
-      await axios.delete(deleteUrl);
 
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
+  const  onProductDelete =useCallback((product: Product) => {
+    try {
       const copy = [...products];
 
       const index = copy.findIndex((item) => item.id === product.id);
@@ -33,23 +32,29 @@ function ListProductsPage() {
     } catch {
       alert("Failed to delete");
     }
-  }
+  }, [products])
 
-  function handleEdit(product: Product) {
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
+  const  handleEdit = useCallback((product: Product) => {
     navigate("/products/"+ product.id, {state: {product}});
-    
+  }, [])
 
-    // navigate({
-    //   pathname: "/products/" + product.id,
-    // //   search: "?search=param",
-    // //   hash: "#hash",
-    //   state: { some: "" },
-    // });
-  }
+  const totalPrice =useMemo( () => {
+
+    console.log("calculating total price");
+    let total = 0;
+    products.forEach(p => {
+      if(p.price)
+        total += p.price
+    })
+    return total;
+
+  }, [products])
 
   return (
     <div>
       <h3>List Products</h3>
+      <div>Total Price: {totalPrice}</div>
       {isMessageVisible? <div className="alert alert-info">
                                   Demo for ListProducts</div> : null}
 
@@ -68,7 +73,10 @@ function ListProductsPage() {
       >
         {products.map((product) => {
           return (
-            <ProductView key={product.id} product={product}/>
+            <ProductView key={product.id} 
+                          product={product} 
+                          onDelete={onProductDelete}
+                          onEdit={handleEdit}/>
             // <div className="product" key={product.id}>
             //   <p>Id: {product.id}</p>
             //   <p>Name: {product.name}</p>
