@@ -122,3 +122,8 @@
 
 ***Optimization***
   * create smaller or granular components
+  * React 19: 
+    * react compiler: optimizations to ensure unnecessary rerenders are avoided
+  * React.memo:
+    * create a cache(momoized) copy of the component
+    * memo is regenerated if the props or state changes
