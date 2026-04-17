@@ -1,7 +1,7 @@
 // <Counter initCount={5} />
 
 import type React from "react"
-import { useEffect, useRef, useState, type ChangeEvent } from "react"
+import { useEffect, useEffectEvent, useRef, useState, type ChangeEvent } from "react"
 
 type CounterProps = {
     initCount: number
@@ -16,6 +16,22 @@ const Counter: React.FC<CounterProps> = ({initCount}) => {
     useEffect(() => {
         console.log("count updated...", count);
     }, [count])
+
+     const logHandler = useEffectEvent(() => {
+        console.log("count", count);
+    })
+
+    useEffect(() => {
+
+      const handler = setInterval(() => {
+        logHandler();
+      }, 1000)
+
+      return () => {
+        clearInterval(handler);
+      }
+
+  }, []);
 
     function inc( ){
         //console.log("inc invoked...",evt);

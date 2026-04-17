@@ -5,8 +5,12 @@ import LoginPage from "./pages/Login";
 import ListProductsPage from "./pages/ListProducts";
 import EditProduct from "./pages/EditProduct";
 import GadgetStorePage from "./pages/GadgetStore";
-import ViewCartPage from "./pages/ViewCart";
+
 import ProtectedRoute from "./components/ProtectedRoute";
+import React, { Suspense } from "react";
+
+//import ViewCartPage from "./pages/ViewCart";
+const ViewCartPage = React.lazy(() => import('./pages/ViewCart'));
 
 function App() {
   return (
@@ -16,15 +20,17 @@ function App() {
           <AppBar />
         </header>
         <main>
-          <Routes>
-            <Route path="/" element={<Counter initCount={5}/>} />
-            <Route path="/products" 
-                element={<ProtectedRoute><ListProductsPage/></ProtectedRoute>} />
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path="/products/:id" element={<ProtectedRoute><EditProduct/></ProtectedRoute>}/>
-            <Route path="/gadgets" element={<ProtectedRoute><GadgetStorePage/></ProtectedRoute>}/>
-            <Route path="/viewcart" element={<ViewCartPage/>}/>
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Counter initCount={5}/>} />
+              <Route path="/products" 
+                  element={<ProtectedRoute><ListProductsPage/></ProtectedRoute>} />
+              <Route path="/login" element={<LoginPage/>} />
+              <Route path="/products/:id" element={<ProtectedRoute><EditProduct/></ProtectedRoute>}/>
+              <Route path="/gadgets" element={<ProtectedRoute><GadgetStorePage/></ProtectedRoute>}/>
+              <Route path="/viewcart" element={<ViewCartPage/>}/>
+            </Routes>
+          </Suspense>
         </main>
       </div>
     </Router>

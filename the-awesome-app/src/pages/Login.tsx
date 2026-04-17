@@ -34,7 +34,7 @@ function LoginPage() {
       //validate
       try {
         const url = "http://localhost:9000/login";
-        const response = await axios.post(url, { name: username, password });
+        const response = await  axios.post(url, { name: username, password });
         console.log("success", response);
         setMessage("");
         dispatch({
@@ -43,7 +43,7 @@ function LoginPage() {
             isAuthenticated: true,
             username,
             accessToken: response.data.accessToken,
-            refreshToken: response.data.refershToken,
+            refreshToken: response.data.refreshToken,
           },
         });
 

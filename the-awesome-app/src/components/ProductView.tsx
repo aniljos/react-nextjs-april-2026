@@ -11,7 +11,7 @@ type ProductViewProps = {
     onEdit?: (product: Product) => void
 }
 
-const ProductView: React.FC<ProductViewProps> =  ({product, onDelete, onEdit}) => {
+const ProductView: React.FC<ProductViewProps> =React.memo(  ({product, onDelete, onEdit}) => {
 
     console.log("rendering productview ", product.id);
 
@@ -52,6 +52,6 @@ const ProductView: React.FC<ProductViewProps> =  ({product, onDelete, onEdit}) =
               </div>
             </div>
     )
-}
+})
 
 export default ProductView;
