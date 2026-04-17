@@ -1,5 +1,8 @@
 **React-Next.js Session:  13th April 2026**
 
+No: 9833169784(WA)
+email: anil.jos@gmail.com
+
 ***Google Forms***
 * Introduction: https://forms.gle/bbi2mU4bvM8XsDJdA
 * Quiz Day 1: https://forms.gle/Rx1Nthxv26aTFndm8
@@ -8,7 +11,7 @@
 * Final Quiz: https://forms.gle/nz7wPWJC2Q4AeT919
   
   Feedback: https://forms.gle/437jqGzvmPAm8DZz7
-  
+
 ***Documentation***
 * React: https://react.dev/
 * Nextjs: https://nextjs.org/
@@ -23,6 +26,9 @@
 * REST API Mock: https://github.com/aniljos/REST-API-Mock
 * Multizones: https://github.com/aniljos/Nextjs-multizones
 * Vite MFE: https://github.com/aniljos/vite-mfe-app
+
+***Tutorial***
+* https://www.youtube.com/@DaveGrayTeachesCode
 
 ***Vite Project***
 

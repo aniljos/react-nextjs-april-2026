@@ -6,7 +6,7 @@ export type ThemeState = {
 }
 export const initialState: ThemeState = {
     mode: 'dark',
-    changeMode: (mode: string) => {}
+    changeMode: () => {}
 }
 
 // create context/store

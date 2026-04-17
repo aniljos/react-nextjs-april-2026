@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Product } from "../model/Product";
 import "./ListProducts.css";
 import { useNavigate } from "react-router-dom";
