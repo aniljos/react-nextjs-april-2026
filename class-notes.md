@@ -19,6 +19,7 @@
 * Training: https://github.com/aniljos/react-nextjs-april-2026
 * REST API Mock: https://github.com/aniljos/REST-API-Mock
 * Multizones: https://github.com/aniljos/Nextjs-multizones
+* Vite MFE: https://github.com/aniljos/vite-mfe-app
 
 ***Vite Project***
 
@@ -132,4 +133,6 @@
     * useCallback: create a momoized copy of the callback(passed as prop to a component)
     * useMemo: create a memo of a value
   * Virtual DOM
+
+
   

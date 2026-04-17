@@ -15,7 +15,7 @@ export const initialState: ThemeState = {
 export const AppThemeContext = React.createContext(initialState)
 
 type AppThemeProviderProps = {
-    children: JSX.Element
+    children: React.ReactNode
 }
 export function AppThemeProvider(props: AppThemeProviderProps){
 

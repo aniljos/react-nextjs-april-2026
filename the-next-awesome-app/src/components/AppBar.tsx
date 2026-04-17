@@ -42,6 +42,9 @@ function AppBar() {
             <Link className="nav-link" href="/customers">Customers</Link>
           </li>
            <li className="nav-item">
+            <Link className="nav-link" href="/suppliers">Suppliers</Link>
+          </li>
+           <li className="nav-item">
             <button className='btn btn-warning' onClick={switchTheme}>Switch Theme</button>
           </li>
         </ul>

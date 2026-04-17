@@ -7,3 +7,5 @@ export default function AboutPage(){
         </div>
     )
 }
+
+export const dynamic = 'force-dynamic';
