@@ -5,6 +5,9 @@
 * Quiz Day 1: https://forms.gle/Rx1Nthxv26aTFndm8
 * Quiz Day 2: https://forms.gle/XEhyS27d6i5xAERs9
 * Quiz Day 3: https://forms.gle/fFzJ6ookP3onzJZdA
+* Final Quiz: https://forms.gle/nz7wPWJC2Q4AeT919
+  
+  Feedback: https://forms.gle/437jqGzvmPAm8DZz7
   
 ***Documentation***
 * React: https://react.dev/
