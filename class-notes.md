@@ -30,9 +30,9 @@ email: anil.jos@gmail.com
 ***Tutorial***
 * https://www.youtube.com/@DaveGrayTeachesCode
 
-  ***Draw.io Links***
-  *https://drive.google.com/file/d/1StCXD8voKlD3LhLsrulVJFBqL5rRtXvg/view?usp=sharing
-  *https://drive.google.com/file/d/1X0lGRuCstVokd8urx3wSBUeowO6aGLGP/view?usp=sharing
+***Draw.io Links***
+  * https://drive.google.com/file/d/1StCXD8voKlD3LhLsrulVJFBqL5rRtXvg/view?usp=sharing
+  * https://drive.google.com/file/d/1X0lGRuCstVokd8urx3wSBUeowO6aGLGP/view?usp=sharing
 
 ***Vite Project Files***
 
